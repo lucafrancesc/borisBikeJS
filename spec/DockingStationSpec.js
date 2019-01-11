@@ -29,9 +29,8 @@ describe('DockingStation', function(){
     for (var i = 0; i < 20; i++) {
       station.dockBike(bike);
     };
-    expect(function functionName() {
+    expect(function() {
       station.dockBike(bike)
     }).toThrowError('This station is full!');
   });
-
 })
