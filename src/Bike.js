@@ -1,5 +1,4 @@
 function Bike(){
-
 };
 
 Bike.prototype.working = function () {

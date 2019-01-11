@@ -1,7 +1,23 @@
 function DockingStation(){
-  
+  this.capacity = 20;
+  this.docking = []
 };
 
-DockingStation.prototype.releaseBike = function (bike) {
-  return bike
+DockingStation.prototype.releaseBike = function () {
+  if (this.docking.length === 0){
+    throw new Error('No bikes!');
+  } else {
+    var bike = this.docking.pop()
+    return bike
+  }
+
+};
+
+DockingStation.prototype.dockBike = function (bike) {
+  if (this.docking.length === this.capacity){
+    throw new Error('This station is full!');
+  } else {
+    this.docking.push(bike);
+    return bike
+  }
 };
