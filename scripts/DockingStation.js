@@ -7,7 +7,6 @@ DockingStation.prototype.releaseBike = function () {
   var workingBikes = []
   if (this.docking.length === 0){
     throw new Error('No bikes!');
-    return
   }else{
     for (var i = 0; i < this.docking.length; i++){
       if(this.docking[i].status === 'Working'){
