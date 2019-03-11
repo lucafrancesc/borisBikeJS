@@ -3,11 +3,12 @@ describe('DockingStation', function(){
   var bike;
 
   beforeEach(function() {
-    function BikeStub() {}
+    function BikeStub() {
+      this.status = 'Working'
+    }
       BikeStub.prototype = {
-      working() {}
+        working() {}
     };
-
     bike = new BikeStub();
     station = new DockingStation();
   });
@@ -17,11 +18,18 @@ describe('DockingStation', function(){
   });
 
   it('release a bike', function(){
-
+    station.dockBike(bike)
+    expect(station.releaseBike()).toEqual(Object({ status: 'Working' }))
   });
 
   it('won\'t release a broken bike', function(){
-    
+    bike.status = 'Not working'
+    // console.log(bike.status);
+    station.dockBike(bike)
+    expect(station.releaseBike()).toEqual('No working bikes');
+    // expect(function() {
+    //   station.releaseBike()
+    // }).toThrowError('No working bikes');
   });
 
   it('raises an error if no bike docked', function(){
