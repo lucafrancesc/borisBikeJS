@@ -24,12 +24,10 @@ describe('DockingStation', function(){
 
   it('won\'t release a broken bike', function(){
     bike.status = 'Not working'
-    // console.log(bike.status);
     station.dockBike(bike)
-    expect(station.releaseBike()).toEqual('No working bikes');
-    // expect(function() {
-    //   station.releaseBike()
-    // }).toThrowError('No working bikes');
+    expect(function(){
+      station.releaseBike()
+    }).toThrowError('No working bikes');
   });
 
   it('raises an error if no bike docked', function(){

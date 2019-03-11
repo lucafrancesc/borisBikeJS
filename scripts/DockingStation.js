@@ -19,8 +19,7 @@ DockingStation.prototype.releaseBike = function () {
   if(workingBikes.length > 0){
     return workingBikes.pop()
   }else{
-    // throw new Error ('No working bikes')
-    return 'No working bikes'
+    throw new Error ('No working bikes')
   }
 };
 
