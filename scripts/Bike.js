@@ -3,10 +3,14 @@ function Bike(){
 };
 
 Bike.prototype.working = function (status) {
-  if (status === 'Y' ){
+  status = status.toLowerCase()
+
+  if (status === 'y'){
     this.status = 'Working'
-  } else if (status === 'N' ){
+  } else if (status === 'n'){
     this.status = 'Not working'
+  } else {
+    throw new Error('Invalid input')
   };
   return this.status
 };

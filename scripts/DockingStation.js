@@ -6,10 +6,7 @@ function DockingStation(capacity){
 DockingStation.prototype.releaseBike = function () {
   if (this.docking.length === 0){
     throw new Error('No bikes!');
-  } else {
-    var bike = this.docking.pop();
-    return bike;
-  }
+  } 
 };
 
 DockingStation.prototype.dockBike = function (bike) {
@@ -19,4 +16,4 @@ DockingStation.prototype.dockBike = function (bike) {
     this.docking.push(bike);
     return bike;
   }
-};
+}

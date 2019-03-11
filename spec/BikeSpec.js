@@ -10,6 +10,20 @@ describe('Bike', function(){
   });
 
   it('checks if the bike is working', function(){
-    expect(bike.working()).toBe(true)
+    bike.working('Y');
+    expect(bike.status).toBe('Working');
   });
+
+  it('checks the bike status', function(){
+    bike.working('N');
+    expect(bike.status).toBe('Not working')
+  });
+
+  it('thrown an error if invalid input', function(){
+    expect(function() {
+      bike.working('c')
+    }).toThrowError('Invalid input')
+  });
+
+
 });

@@ -1,8 +1,14 @@
 describe('DockingStation', function(){
   var station;
+  var bike;
 
   beforeEach(function() {
-    bike = jasmine.createSpy('bike');
+    function BikeStub() {}
+      BikeStub.prototype = {
+      working() {}
+    };
+
+    bike = new BikeStub();
     station = new DockingStation();
   });
 
@@ -11,8 +17,11 @@ describe('DockingStation', function(){
   });
 
   it('release a bike', function(){
-    station.dockBike(bike)
-    expect(station.releaseBike()).toEqual(bike);
+
+  });
+
+  it('won\'t release a broken bike', function(){
+    
   });
 
   it('raises an error if no bike docked', function(){
@@ -33,4 +42,4 @@ describe('DockingStation', function(){
       station.dockBike(bike)
     }).toThrowError('This station is full!');
   });
-})
+});
